@@ -19,7 +19,7 @@ typedef struct __attribute((packed)) {
     char path[256];
 } LOAD_REQUEST;
 
-extern "C" void _SYSLaunchTitleWithStdArgsInNoSplash(uint64_t, int);
+//extern "C" void _SYSLaunchTitleWithStdArgsInNoSplash(uint64_t, int);
 extern "C" void OSRestartGame();
 
 bool StringEndsWith(const std::string &a, const std::string &b) {
@@ -62,11 +62,11 @@ int32_t getRPXInfoForPath(const std::string &path, romfs_fileInfo *info) {
 }
 
 int main(int argc, char **argv) {
-    std::string bundle_path  = "wiiu/apps/PayloadLoaderInstaller.wuhb";
+    std::string bundle_path  = "/wiiu/apps/dumpling/dumpling.wuhb";
     std::string completePath = std::string("/vol/external01/") + bundle_path;
 
     if (fopen(completePath.c_str(), "r") == NULL) {
-        OSFatal("\"sd:/wiiu/apps/PayloadLoaderInstaller.wuhb\" is missing on the sd card");
+        OSFatal("\"sd:/wiiu/apps/dumpling/dumpling.wuhb\" is missing on the sd card");
         ;
     }
 
